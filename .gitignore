@@ -1,8 +1,10 @@
 .gitignore
+logs/
 start/app/__pycache__
 start/log.html
 start/output.xml
 start/report.html
 start/logs
 bodytest/deploys/*
-bodytest/logs/*
+bodytest/logs/
+bodytest/tests/logs/
