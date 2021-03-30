@@ -21,7 +21,6 @@ Login do Administrador
     Take Screenshot
 
 Senha Incorreta
-    [Tags]  si
     New Browser     chromium    False
     New Page        https://bodytest-web-cassio.herokuapp.com/
 
@@ -35,5 +34,56 @@ Senha Incorreta
 
     Wait For Elements State     css=.Toastify__toast-body >> text=Usuário ou senha inválido     visible     5 
 
-    Take Screenshot  
-        
+    Take Screenshot
+
+Email Incorreto
+    New Browser     chromium    False
+    New Page        https://bodytest-web-cassio.herokuapp.com/
+
+    Fill Text   id=email        admin&bodytest.com
+    Fill Text   id=password     123456
+
+    Click       text=Entrar
+
+    Wait For Elements State     css=form span >> text=Informe um e-mail válido     visible     5 
+
+    Take Screenshot
+
+Senha Não Informada
+    New Browser     chromium    False
+    New Page        https://bodytest-web-cassio.herokuapp.com/
+
+    Fill Text   id=email        admin@bodytest.com
+    Fill Text   id=password     ${EMPTY}
+
+    Click       text=Entrar
+
+    Wait For Elements State     css=form span >> text=A senha é obrigatória     visible     5 
+
+    Take Screenshot
+
+Email Não Informado
+    New Browser     chromium    False
+    New Page        https://bodytest-web-cassio.herokuapp.com/
+
+    Fill Text   id=email        ${EMPTY}
+    Fill Text   id=password     admin@bodytest.com
+    Click       text=Entrar
+
+    Wait For Elements State     css=form span >> text=O e-mail é obrigatório    visible     5 
+
+    Take Screenshot
+
+Email e Senha Não Informados
+    [Tags]  temp
+    New Browser     chromium    False
+    New Page        https://bodytest-web-cassio.herokuapp.com/
+
+    Fill Text   id=email        ${EMPTY}
+    Fill Text   id=password     ${EMPTY}
+    Click       text=Entrar
+
+    Wait For Elements State     css=form span >> text=O e-mail é obrigatório    visible     5 
+    Wait For Elements State     css=form span >> text=A senha é obrigatória     visible     5 
+
+    Take Screenshot
