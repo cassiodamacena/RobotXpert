@@ -5,63 +5,47 @@ Resource        ../resources/base.robot
 
 ***Test Cases***
 Login do Administrador
-    New Browser     chromium    False                                        # Abrir no Google Chrome | False é o para abrir o navegador
-    New Page        https://bodytest-web-cassio.herokuapp.com/
+    [Tags]  admin
+    auth.Go To Login Page
+    auth.Login With                 admin@bodytest.com  pwd123
 
-    auth.Login With  admin@bodytest.com  pwd123
-
-    Get Text    css=aside strong    equal   Administrador
+    nav.User Should Be Logged In    Administrador
 
     Take Screenshot
 
 Senha Incorreta
-    New Browser     chromium    False
-    New Page        https://bodytest-web-cassio.herokuapp.com/
-
-    auth.Login With  admin@bodytest.com  123456
-
-    Wait For Elements State     css=.Toastify__toast-body >> text=Usuário ou senha inválido     visible     5 
+    auth.Go To Login Page
+    auth.Login With             admin@bodytest.com  123456
+    auth.Toaster Should Be      Usuário ou senha inválido 
 
     Take Screenshot
 
 Email Incorreto
-    New Browser     chromium    False
-    New Page        https://bodytest-web-cassio.herokuapp.com/
-
-    auth.Login With  admin&bodytest.com  pwd123
-
-    Wait For Elements State     css=form span >> text=Informe um e-mail válido     visible     5 
+    auth.Go To Login Page
+    auth.Login With             admin&bodytest.com  pwd123
+    auth.Alert Text Should Be   Informe um e-mail válido
 
     Take Screenshot
 
 Senha Não Informada
-    New Browser     chromium    False
-    New Page        https://bodytest-web-cassio.herokuapp.com/
-
-    auth.Login With  admin@bodytest.com  ${EMPTY}
-
-    Wait For Elements State     css=form span >> text=A senha é obrigatória     visible     5 
+    auth.Go To Login Page
+    auth.Login With             admin@bodytest.com  ${EMPTY}
+    auth.Alert Text Should Be   A senha é obrigatória
 
     Take Screenshot
 
 Email Não Informado
-    New Browser     chromium    False
-    New Page        https://bodytest-web-cassio.herokuapp.com/
-
-    auth.Login With  ${EMPTY}  pwd123
-
-    Wait For Elements State     css=form span >> text=O e-mail é obrigatório    visible     5 
+    auth.Go To Login Page
+    auth.Login With             ${EMPTY}  pwd123
+    auth.Alert Text Should Be   O e-mail é obrigatório
 
     Take Screenshot
 
 Email e Senha Não Informados
-    [Tags]  temp
-    New Browser     chromium    False
-    New Page        https://bodytest-web-cassio.herokuapp.com/
+    auth.Go To Login Page
 
-    auth.Login With  ${EMPTY}  ${EMPTY}
-
-    Wait For Elements State     css=form span >> text=O e-mail é obrigatório    visible     5 
-    Wait For Elements State     css=form span >> text=A senha é obrigatória     visible     5 
+    auth.Login With  ${EMPTY}   ${EMPTY}
+    auth.Alert Text Should Be   O e-mail é obrigatório 
+    auth.Alert Text Should Be   A senha é obrigatória
 
     Take Screenshot
