@@ -1,0 +1,10 @@
+{"level":30,"time":"2021-03-30T01:48:11.090Z","pid":45123,"hostname":"cassiopd","msg":"Listening on 40235"}
+{"level":30,"time":"2021-03-30T01:48:11.699Z","pid":45123,"hostname":"cassiopd","msg":"Changed active context"}
+{"level":30,"time":"2021-03-30T01:48:12.191Z","pid":45123,"hostname":"cassiopd","msg":"Video path: undefined"}
+{"level":30,"time":"2021-03-30T01:48:12.193Z","pid":45123,"hostname":"cassiopd","msg":"Changed active page"}
+{"level":30,"time":"2021-03-30T01:48:16.488Z","pid":45123,"hostname":"cassiopd","msg":"Changed active context"}
+{"level":30,"time":"2021-03-30T01:48:16.489Z","pid":45123,"hostname":"cassiopd","msg":"Changing current active page"}
+{"level":30,"time":"2021-03-30T01:48:16.489Z","pid":45123,"hostname":"cassiopd","msg":"Changed active page"}
+{"level":30,"time":"2021-03-30T01:48:16.519Z","pid":45123,"hostname":"cassiopd","msg":"Changed active context"}
+{"level":30,"time":"2021-03-30T01:48:16.519Z","pid":45123,"hostname":"cassiopd","msg":"Changing current active page"}
+{"level":30,"time":"2021-03-30T01:48:16.519Z","pid":45123,"hostname":"cassiopd","msg":"Changed active page"}

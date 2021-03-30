@@ -30,8 +30,10 @@ Senha Incorreta
 
     Click       text=Entrar
 
-    Wait For Elements State     css=.Toastify__toast-body   visible     5   # Time-out explicito para aguardar elemento ficar visivel em tela
-    Get Text                    css=.Toastify__toast-body   should be   Usuário ou senha inválido
+    #Wait For Elements State     css=.Toastify__toast-body   visible     5   # Time-out explicito para aguardar elemento ficar visivel em tela
+    #Get Text                    css=.Toastify__toast-body   should be   Usuário ou senha inválido
+
+    Wait For Elements State     css=.Toastify__toast-body >> text=Usuário ou senha inválido     visible     5 
 
     Take Screenshot  
         
