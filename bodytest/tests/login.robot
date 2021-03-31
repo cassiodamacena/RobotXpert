@@ -13,7 +13,6 @@ Test Teardown       Take Screenshot
 
 ***Test Cases***
 Login do Administradors
-    [Tags]  admin
     auth.Go To Login Page
     auth.Login With                 admin@bodytest.com  pwd123
 
@@ -22,33 +21,35 @@ Login do Administradors
     [Teardown]      Clear Local Storage And Take Screenshot
 
 Senha Incorreta
-    [Tags]  temp
     auth.Go To Login Page
     auth.Login With             admin@bodytest.com  123456
-    auth.Toaster Should Be      Usuário ou senha inválido 
+    auth.Toaster Should Be      Usuário e/ou senha inválidos.
+
+    [Teardown]      Thinking And Take Screenshot    2
+
+Email Não Cadastado
+    auth.Go To Login Page
+    auth.Login With             admin@bodytest.com  123456
+    auth.Toaster Should Be      Usuário e/ou senha inválidos.
 
     [Teardown]      Thinking And Take Screenshot    2
 
 Email Incorreto
-    [Tags]  temp
     auth.Go To Login Page
     auth.Login With             admin&bodytest.com  pwd123
     auth.Alert Text Should Be   Informe um e-mail válido
 
 Senha Não Informada
-    [Tags]  temp
     auth.Go To Login Page
     auth.Login With             admin@bodytest.com  ${EMPTY}
     auth.Alert Text Should Be   A senha é obrigatória
 
 Email Não Informado
-    [Tags]  temp
     auth.Go To Login Page
     auth.Login With             ${EMPTY}  pwd123
     auth.Alert Text Should Be   O e-mail é obrigatório
 
 Email e Senha Não Informados
-    [Tags]  temp
     auth.Go To Login Page
 
     auth.Login With  ${EMPTY}   ${EMPTY}
