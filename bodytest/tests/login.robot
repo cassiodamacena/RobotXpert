@@ -22,15 +22,15 @@ Login do Administradors
 
 Senha Incorreta
     auth.Go To Login Page
-    auth.Login With             admin@bodytest.com  123456
-    auth.Toaster Should Be      Usuário e/ou senha inválidos.
+    auth.Login With                 admin@bodytest.com  123456
+    auth.Toaster Text Should Be     Usuário e/ou senha inválidos.
 
     [Teardown]      Thinking And Take Screenshot    2
 
 Email Não Cadastado
     auth.Go To Login Page
-    auth.Login With             admin@bodytest.com  123456
-    auth.Toaster Should Be      Usuário e/ou senha inválidos.
+    auth.Login With                 admin@bodytest.com  123456
+    auth.Toaster Text Should Be     Usuário e/ou senha inválidos.
 
     [Teardown]      Thinking And Take Screenshot    2
 

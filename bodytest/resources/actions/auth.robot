@@ -14,7 +14,7 @@ Login With
     Fill Text   id=password     ${senha}
     Click       text=Entrar
 
-Toaster Should Be
+Toaster Text Should Be
     [Arguments]                 ${expected_text}
     Wait For Elements State     css=.Toastify__toast-body >> text=${expected_text}    visible     15 
 
