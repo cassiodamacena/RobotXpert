@@ -2,9 +2,7 @@
 Documentation   Steps para automação do Cadastro de Alunos
 
 Resource        ../resources/base.robot
-
 Suite Setup     Start Browser Session
-
 
 ***Test Cases***
 Novo Aluno
@@ -14,26 +12,8 @@ Novo Aluno
 
     User Should Be Logged In    Administrador
 
-    Click   a[href$=alunos]
-
-    Wait For Elements State     css=h1 >> text=Gestão de Alunos     visible     5
-
-    Click   a[href$="alunos/new"]
-
-    Wait For Elements State     css=h1 >> text=Novo aluno     visible     5
+    Go To Students
+    Go To Form Students    
 
     # Ações do Step
-    Fill Text   input[name=name]        Suelym Viana
-    Fill Text   input[name=email]       suelym@hotmail.com
-    Fill Text   input[name=age]         30
-    Fill Text   input[name=weight]      70
-    Fill Text   input[name=feet_tall]   1.65
-    
-    Click       button[type=submit]
-    # Click     button[form=formStudent]
-    # Click     xpath=//button[contains(text(), "Salvar")]
-
-    # Validação do Step
-    Toaster Text Should Be  Aluno cadastrado com sucesso
-
-    [Teardown]      Thinking And Take Screenshot    2
+    New Student  Suelym Viana  suelym@hotmail.com  30  70  1.65
