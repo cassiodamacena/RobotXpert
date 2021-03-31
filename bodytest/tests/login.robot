@@ -9,16 +9,17 @@ Resource        ../resources/base.robot
 #Test Teardown       Log To Console     Tudo aqui acontece Depois de cada Teste
 
 Suite Setup         Start Browser Session
+Test Teardown       Take Screenshot
 
 ***Test Cases***
-Login do Administrador
+Login do Administradors
     [Tags]  admin
     auth.Go To Login Page
     auth.Login With                 admin@bodytest.com  pwd123
 
     nav.User Should Be Logged In    Administrador
 
-    Take Screenshot
+    [Teardown]      Clear Local Storage And Take Screenshot
 
 Senha Incorreta
     [Tags]  temp
@@ -26,7 +27,7 @@ Senha Incorreta
     auth.Login With             admin@bodytest.com  123456
     auth.Toaster Should Be      Usuário ou senha inválido 
 
-    Take Screenshot
+    [Teardown]      Thinking And Take Screenshot    2
 
 Email Incorreto
     [Tags]  temp
@@ -34,23 +35,17 @@ Email Incorreto
     auth.Login With             admin&bodytest.com  pwd123
     auth.Alert Text Should Be   Informe um e-mail válido
 
-    Take Screenshot
-
 Senha Não Informada
     [Tags]  temp
     auth.Go To Login Page
     auth.Login With             admin@bodytest.com  ${EMPTY}
     auth.Alert Text Should Be   A senha é obrigatória
 
-    Take Screenshot
-
 Email Não Informado
     [Tags]  temp
     auth.Go To Login Page
     auth.Login With             ${EMPTY}  pwd123
     auth.Alert Text Should Be   O e-mail é obrigatório
-
-    Take Screenshot
 
 Email e Senha Não Informados
     [Tags]  temp
@@ -59,5 +54,3 @@ Email e Senha Não Informados
     auth.Login With  ${EMPTY}   ${EMPTY}
     auth.Alert Text Should Be   O e-mail é obrigatório 
     auth.Alert Text Should Be   A senha é obrigatória
-
-    Take Screenshot
