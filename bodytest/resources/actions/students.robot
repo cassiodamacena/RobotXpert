@@ -2,10 +2,6 @@
 Documentation   Actions para automação do Cadastro de Alunos
 
 ***Keywords***
-Go To Students
-    Click   a[href$=alunos] 
-    Wait For Elements State     css=h1 >> text=Gestão de Alunos     visible     5
-
 Go To Form Students
     Click   a[href$="alunos/new"]
     Wait For Elements State     css=h1 >> text=Novo aluno     visible     5
