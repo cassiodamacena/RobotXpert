@@ -6,9 +6,12 @@ Suite Setup     Start Admin Session
 
 ***Test Cases***
 Novo Aluno
-    # Pré-Condição:     estar logado com usuário com permissão
+    # Pré-Condição:
+    # 1) Estar logado com usuário com permissão
+    # 2) Garantir que email não existe cadastrado
+    Remove Student      suelym@bodytest.com
     Go To Students
     Go To Form Students    
 
     # Ações do Step
-    New Student  Suelym Viana  suelym@hotmail.com  30  70  1.65
+    New Student  Suelym Viana  suelym@bodytest.com  30  70  1.65

@@ -2,6 +2,7 @@
 Documentation   Arquivo base do projeo de automação BodyTest
 
 Library         Browser
+Library         libs/DeloreanLibrary.py
 
 Resource        actions/auth.robot
 Resource        actions/nav.robot
