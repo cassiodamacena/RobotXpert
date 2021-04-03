@@ -21,3 +21,24 @@ class DeloreanLibrary():
         cur.execute(query)
         conn.commit()
         conn.close()
+    
+
+    def insert_student(self, student):
+
+        self.remove_student(student['email'])
+        
+        query = ("insert into students (name, email, age, weight, feet_tall, created_at, updated_at) "
+                "values('{}','{}',{},{}, 1.75, now(), now());"
+                .format(student['name'], student['email'], student['age'], student['weight'], student['feet_tall']))
+        
+        conn = psycopg2.connect(
+            host='ec2-23-21-229-200.compute-1.amazonaws.com',
+            database='dai6l32g2tis5l',
+            user='wdxdpikabhsxim',
+            password='2c5a8af0623ca9a329e474046cd2eebed8673aa22d9b444cce2e2d620a7e5937'
+        )
+
+        cur = conn.cursor()
+        cur.execute(query)
+        conn.commit()
+        conn.close()

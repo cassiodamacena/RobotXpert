@@ -23,6 +23,7 @@ New Student
     # Click     xpath=//button[contains(text(), "Salvar")]
 
     # Validação do Step
-    Toaster Text Should Be  Aluno cadastrado com sucesso
+    #Toaster Text Should Be  Aluno cadastrado com sucesso
 
-    [Teardown]      Thinking And Take Screenshot    2
+    #[Teardown]      Thinking And Take Screenshot    2
+
