@@ -4,6 +4,8 @@ Documentation   Steps para automação do Cadastro de Alunos
 Resource        ../resources/base.robot
 Suite Setup     Start Admin Session
 
+Library         Collections
+
 ***Test Cases***
 Novo Aluno
 
@@ -36,7 +38,44 @@ Não Deve Permitir Email Duplicado
     Insert Student          ${student}
     
     Go To Students
-    Go To Form Students    
+    Go To Form Students
     New Student             ${student}
     Toaster Text Should Be  Email já existe no sistema.
     [Teardown]      Thinking And Take Screenshot    2
+
+
+Todos os Campos Devem Ser Obrigatórios
+    [Tags]      temp
+
+    @{expected_alerts}      Set Variable        Nome é obrigatório   O e-mail é obrigatório     idade é obrigatória     o peso é obrigatório    a Altura é obrigatória
+
+    Go To Students
+    Go To Form Students
+    Submit Student Form
+
+    # Validando mensagens de campo obrigatório 1 a 1
+    #Alert Text Should Be    Nome é obrigatório
+    #Alert Text Should Be    O e-mail é obrigatório
+    #Alert Text Should Be    idade é obrigatória
+    #Alert Text Should Be    o peso é obrigatório
+    #Alert Text Should Be    a Altura é obrigatória
+
+    # Validando mensages por Listas e FOR
+    #FOR     ${aler}     IN      @{expected_alerts}
+    #    Alert Text Should Be    ${aler} 
+    #END
+
+    # Armazenando resultado de cada validação em uma lista vazia
+    @{got_alerts}           Create List     # Criando lista vazia para adicionar
+    
+    FOR     ${index}    IN RANGE    1   6
+       ${alert}         Get Required Alerts     ${index}
+       Append To List   ${got_alerts}           ${alert}
+    END
+
+    Log      ${expected_alerts}
+    Log      ${got_alerts}
+
+    Lists Should Be Equal  ${expected_alerts}  ${got_alerts}
+
+    Take Screenshot

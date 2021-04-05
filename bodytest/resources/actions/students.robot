@@ -6,6 +6,9 @@ Go To Form Students
     Click   a[href$="alunos/new"]
     Wait For Elements State     css=h1 >> text=Novo aluno     visible     5
 
+Submit Student Form
+    Click       button[type=submit]
+
 New Student
     # Variável Simples
     #[Arguments]     ${name}     ${email}    ${age}  ${weight}   ${feet_tall}
@@ -18,7 +21,8 @@ New Student
     Fill Text   input[name=weight]      ${student.weight}
     Fill Text   input[name=feet_tall]   ${student.feet_tall}
     
-    Click       button[type=submit]
+    Submit Student Form
+
     # Click     button[form=formStudent]
     # Click     xpath=//button[contains(text(), "Salvar")]
 

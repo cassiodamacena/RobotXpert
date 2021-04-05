@@ -14,7 +14,3 @@ Login With
     Fill Text   id=email        ${email}
     Fill Text   id=password     ${senha}
     Click       text=Entrar
-
-Alert Text Should Be
-    [Arguments]                 ${expected_text}
-    Wait For Elements State     css=form span >> text=${expected_text}     visible     15 
