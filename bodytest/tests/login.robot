@@ -12,7 +12,7 @@ Suite Setup         Start Browser Session
 Test Teardown       Take Screenshot
 
 ***Test Cases***
-Login do Administradors
+Cenário: Login do Administrador
     auth.Go To Login Page
     auth.Login With                 admin@bodytest.com  pwd123
 
@@ -20,38 +20,38 @@ Login do Administradors
 
     [Teardown]      Clear Local Storage And Take Screenshot
 
-Senha Incorreta
+cenário: Senha Incorreta
     auth.Go To Login Page
     auth.Login With                 admin@bodytest.com  123456
-    auth.Toaster Text Should Be     Usuário e/ou senha inválidos.
+    Toaster Text Should Be     Usuário e/ou senha inválidos.
 
     [Teardown]      Thinking And Take Screenshot    2
 
-Email Não Cadastado
+Cenário: Email Não Cadastado
     auth.Go To Login Page
     auth.Login With                 admin@bodytest.com  123456
-    auth.Toaster Text Should Be     Usuário e/ou senha inválidos.
+    Toaster Text Should Be     Usuário e/ou senha inválidos.
 
     [Teardown]      Thinking And Take Screenshot    2
 
-Email Incorreto
+Cenário: Email Incorreto
     auth.Go To Login Page
     auth.Login With             admin&bodytest.com  pwd123
-    auth.Alert Text Should Be   Informe um e-mail válido
+    Alert Text Should Be   Informe um e-mail válido
 
-Senha Não Informada
+Cenário: Senha Não Informada
     auth.Go To Login Page
     auth.Login With             admin@bodytest.com  ${EMPTY}
-    auth.Alert Text Should Be   A senha é obrigatória
+    Alert Text Should Be   A senha é obrigatória
 
-Email Não Informado
+Cenário: Email Não Informado
     auth.Go To Login Page
     auth.Login With             ${EMPTY}  pwd123
-    auth.Alert Text Should Be   O e-mail é obrigatório
+    Alert Text Should Be   O e-mail é obrigatório
 
-Email e Senha Não Informados
+Cenário: Email e Senha Não Informados
     auth.Go To Login Page
 
     auth.Login With  ${EMPTY}   ${EMPTY}
-    auth.Alert Text Should Be   O e-mail é obrigatório 
-    auth.Alert Text Should Be   A senha é obrigatória
+    Alert Text Should Be   O e-mail é obrigatório 
+    Alert Text Should Be   A senha é obrigatória

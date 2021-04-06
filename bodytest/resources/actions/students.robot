@@ -1,6 +1,13 @@
 ***Settings***
 Documentation   Actions para automação do Cadastro de Alunos
 
+***Variables***
+${FIELD_NAME}       input[name=name]
+${FIELD_EMAIL}      input[name=email]
+${FIELD_AGE}        input[name=age] 
+${FIELD_WEIGTH}     input[name=weight]
+${FIELD_FEET_TALL}  input[name=feet_tall]
+
 ***Keywords***
 Go To Form Students
     Click   a[href$="alunos/new"]
@@ -15,11 +22,11 @@ New Student
 
     [Arguments]     ${student}  #Dicionário de dados
 
-    Fill Text   input[name=name]        ${student.name}
-    Fill Text   input[name=email]       ${student.email}
-    Fill Text   input[name=age]         ${student.age}
-    Fill Text   input[name=weight]      ${student.weight}
-    Fill Text   input[name=feet_tall]   ${student.feet_tall}
+    Fill Text   ${FIELD_NAME}        ${student.name}
+    Fill Text   ${FIELD_EMAIL}       ${student.email}
+    Fill Text   ${FIELD_AGE}         ${student.age}
+    Fill Text   ${FIELD_WEIGTH}      ${student.weight}
+    Fill Text   ${FIELD_FEET_TALL}   ${student.feet_tall}
     
     Submit Student Form
 

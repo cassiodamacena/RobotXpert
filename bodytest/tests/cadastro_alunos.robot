@@ -4,10 +4,8 @@ Documentation   Steps para automação do Cadastro de Alunos
 Resource        ../resources/base.robot
 Suite Setup     Start Admin Session
 
-Library         Collections
-
 ***Test Cases***
-Novo Aluno
+Cenário: Novo Aluno
 
     # Variável simples  ${email}    Set Variable    suelym@bodytest.com
 
@@ -30,7 +28,7 @@ Novo Aluno
     [Teardown]      Thinking And Take Screenshot    2
 
 
-Não Deve Permitir Email Duplicado
+Cenário: Não Deve Permitir Email Duplicado
     [Tags]      dup
     
     &{student}  Create Dictionary   name=NIcolas Damacena   email=nicolas@bodytest.com  age=18    weight=62     feet_tall=1.70
@@ -44,7 +42,7 @@ Não Deve Permitir Email Duplicado
     [Teardown]      Thinking And Take Screenshot    2
 
 
-Todos os Campos Devem Ser Obrigatórios
+cenário: Todos os Campos Devem Ser Obrigatórios
 
     @{expected_alerts}      Set Variable        Nome é obrigatório   O e-mail é obrigatório     idade é obrigatória     o peso é obrigatório    a Altura é obrigatória
 
@@ -80,35 +78,39 @@ Todos os Campos Devem Ser Obrigatórios
     Take Screenshot
 
 # Mesma coisa dos três testes abaixo
-Validate Number Type
-    [Tags]      tudo
-    [Template]  Check Numeric Field On Student Form
-    css=input[name=age]
-    css=input[name=weight]
-    css=input[name=feet_tall]
-
-Check Age Numeric Field
+Cenário: VAlidação de Campos Numérios
     [Tags]      temp
+    [Template]  Check Type Field On Student Form
+    ${FIELD_AGE}         number
+    ${FIELD_WEIGTH}      number
+    ${FIELD_FEET_TALL}   number
+
+Cenário: Checando Se Campo Idade é Numérico
     Go To Students
     Go To Form Students
-    Field Should Be Number   css=input[name=age]
+    Field Should Be Type        ${FIELD_AGE}            number
 
-Check Weight Numeric Field
-    [Tags]      temp
+Cenário: Checando Se Campo Altura é Numérico
     Go To Students
     Go To Form Students
-    Field Should Be Number  css=input[name=weight]
+    Field Should Be Type         ${FIELD_WEIGTH}         number
 
-Check Feet Tall Numeric Field
-    [Tags]      temp
+Cenário: Checando Se Campo Peso é Numérico
     Go To Students
     Go To Form Students
-    Field Should Be Number  css=input[name=feet_tall]
+    Field Should Be Type        ${FIELD_FEET_TALL}      number
+
+
+Cenário: Validar Campo do Tipo Email
+    [Tags]      temp
+
+    [Template]  Check Type Field On Student Form
+    ${FIELD_EMAIL}         email
 
 
 ***Keywords***
-Check Numeric Field On Student Form
-    [Arguments]             ${element}
+Check Type Field On Student Form
+    [Arguments]             ${element}      ${type}
     Go To Students
     Go To Form Students
-    Field Should Be Number  ${element}
+    Field Should Be Type    ${element}      ${type}
