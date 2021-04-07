@@ -100,14 +100,21 @@ Cenário: Checando Se Campo Peso é Numérico
     Go To Form Students
     Field Should Be Type        ${FIELD_FEET_TALL}      number
 
-
 Cenário: Validar Campo do Tipo Email
     [Tags]      temp
 
     [Template]  Check Type Field On Student Form
     ${FIELD_EMAIL}         email
 
-
+Cenário: Menor de 14 Anos Nâo Pode Ser Cadastrado
+    [Tags]      14
+    &{student}  Create Dictionary   name=Kamilly   email=kamilly@bodytest.com  age=13    weight=45     feet_tall=1.40
+    
+    Go To Students
+    Go To Form Students
+    New Student             ${student}
+    Alert Text Should Be    A idade deve ser maior ou igual 14 anos
+    
 ***Keywords***
 Check Type Field On Student Form
     [Arguments]             ${element}      ${type}

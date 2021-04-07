@@ -2,11 +2,11 @@
 Documentation   Actions para automação do Cadastro de Alunos
 
 ***Variables***
-${FIELD_NAME}       input[name=name]
-${FIELD_EMAIL}      input[name=email]
-${FIELD_AGE}        input[name=age] 
-${FIELD_WEIGTH}     input[name=weight]
-${FIELD_FEET_TALL}  input[name=feet_tall]
+${FIELD_NAME}       css=input[name=name]
+${FIELD_EMAIL}      css=input[name=email]
+${FIELD_AGE}        css=input[name=age] 
+${FIELD_WEIGTH}     css=input[name=weight]
+${FIELD_FEET_TALL}  css=input[name=feet_tall]
 
 ***Keywords***
 Go To Form Students
