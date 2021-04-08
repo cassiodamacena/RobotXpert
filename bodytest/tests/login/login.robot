@@ -1,7 +1,7 @@
 **Settings***
 Documentation   Suite de testes de Login do Adinistrador
 
-Resource        ../resources/base.robot
+Resource        ${EXECDIR}/resources/base.robot
 
 #Suite Setup         Log To Console     Tudo aqui acontece ANTES da Suite
 #Suite Teardown      Log To Console     Tudo aqui acontece DEPOIS da Suite
