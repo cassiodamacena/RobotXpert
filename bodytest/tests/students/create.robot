@@ -1,7 +1,7 @@
 ***Settings***
 Documentation   Steps para automação do Cadastro de Alunos
 
-Resource        ../../resources/base.robot
+Resource        ${EXECDIR}/resources/base.robot
 Suite Setup     Start Admin Session
 
 ***Test Cases***

@@ -38,3 +38,20 @@ New Student
 
     #[Teardown]      Thinking And Take Screenshot    2
 
+Request Removal By Email
+    [Arguments]     ${email}
+    Click           xpath=//td[contains(text(), "${email}")]/../td//button[@id="trash"]
+
+Confirm Removal
+    Click           text=SIM, pode apagar!
+
+Student Should Not Visible
+    [Arguments]     ${email}
+    Wait For Elements State           xpath=//td[contains(text(), "${email}")]/../td//button[@id="trash"]   detached    5
+
+Cancel Removal
+    Click           text=NÃO
+
+Student Should Be Visible
+    [Arguments]     ${email}
+    Wait For Elements State           xpath=//td[contains(text(), "${email}")]/../td//button[@id="trash"]   visible    5
