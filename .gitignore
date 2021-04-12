@@ -8,4 +8,4 @@ start/logs
 bodytest/deploys/*
 bodytest/logs/
 bodytest/tests/logs/
-bodytest/resources/libs/__pycache__/*
+bodytest/resources/libs/__pycache__/
