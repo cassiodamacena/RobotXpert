@@ -60,3 +60,7 @@ Search Student By Name
     [Arguments]     ${name}
 
     Fill Text   css=input[placeholder="Buscar aluno"]   ${name}
+
+Student Name Should Be Visible
+    [Arguments]     ${name}
+    Wait For Elements State     css=table tbody tr >> text=${name}  Visible     5
