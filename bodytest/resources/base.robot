@@ -3,6 +3,7 @@ Documentation   Arquivo base do projeo de automação BodyTest
 
 Library         Browser
 Library         Collections
+Library         OperatingSystem
 
 Library         libs/DeloreanLibrary.py
 
@@ -32,3 +33,12 @@ Thinking And Take Screenshot
 
     sleep           ${timeout}
     Take Screenshot
+
+### Helpers
+GET JSON
+    [Arguments]     ${file_name}
+
+    ${file}         Get File    ${EXECDIR}/resources/fixtures/${file_name}
+    ${json_object}  Evaluate    json.loads($file)     json
+    
+    [return]        ${json_object}
