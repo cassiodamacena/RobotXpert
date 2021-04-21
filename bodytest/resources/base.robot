@@ -35,7 +35,7 @@ Thinking And Take Screenshot
     Take Screenshot
 
 ### Helpers
-GET JSON
+Get Json
     [Arguments]     ${file_name}
 
     ${file}         Get File    ${EXECDIR}/resources/fixtures/${file_name}

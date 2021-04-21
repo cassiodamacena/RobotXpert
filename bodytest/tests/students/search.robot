@@ -43,7 +43,7 @@ Cenário: Busca Alunos com Múltiplos Resultados
     # Imprimindo Lista do json
     #Log To Console  ${json_object_students['students']}
 
-    ${fixture}                  GET JSON        students-search.json
+    ${fixture}                  Get Json        students-search.json
 
     ${json_object_students}     Set Variable    ${fixture['students']}
 
